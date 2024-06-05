@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio 2 - solución</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
+</head>
+
+<body>
+    <h1 class="text-center">Feriados de Chile</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Fecha</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Extra</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script>
+    $(document).ready(function() {
+        $.ajax({
+            type: "GET",
+            url: "https://www.feriadosapp.com/api/holidays.json",
+            success: function(response) {
+                let feriados = response.data;
+                feriados.forEach((item) => {
+                    $('.table tbody').append(` <tr>
+                            <td>${item.date}</td>
+                            <td>${item.title}</td>
+                            <td>${item.extra}</td>
+                        </tr>`)
+                })
+            }
+        });
+    });
+    </script>
+</body>
+
+</html>

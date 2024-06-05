@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1</title>
+    <style>
+    body {
+        font-family: monospace;
+    }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div>
+            <div id="cajaClick" style="background-color:red;border: 1px solid gray;margin:10px;padding: 10px">
+                <span>haz click!!!</span>
+            </div>
+            <div id="cajaModifica" style="background-color:white;border: 1px solid gray;margin:10px;padding: 10px">
+                <span>Cambiame</span>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script>
+    $(document).ready(function() {
+        $("#cajaClick").click(() => {
+            $("#cajaModifica")
+                .css("background-color", "green")
+                .css("height", "500px")
+        });
+    });
+    </script>
+</body>
+
+</html>
